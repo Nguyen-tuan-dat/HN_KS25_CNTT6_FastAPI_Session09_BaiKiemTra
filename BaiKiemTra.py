@@ -78,7 +78,7 @@ def http_exception_handler(request: Request, exc: HTTPException):
         message = "Lỗi: Không tìm thấy mã khóa học yêu cầu để xóa!"
     else:
         message = "Failed!"
-    response = create_response(request, exc.status_code, "Failed!", errors=exc.detail)
+    response = create_response(request, exc.status_code, message, errors=exc.detail)
     return JSONResponse(
         content=response.model_dump(),
         status_code=response.status_code
